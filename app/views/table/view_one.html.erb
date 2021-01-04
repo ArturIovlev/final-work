@@ -1,0 +1,119 @@
+<h1>Table#view_one</h1>
+<p>Find me in app/views/table/view_one.html.erb</p>
+
+
+<script>
+  emptyTable = true;
+  function add(element){
+      var NName = document.getElementsByClassName("name");
+      newStr = true;
+      table = document.getElementById("obs")
+      if (emptyTable) {
+          emptyTable = false;
+          table.innerHTML += "<tr><th>Name</th><th>Day</th><th>Time</th><th>Cabinet</th></tr>"
+      }
+      for (x of NName){
+          if((x.innerHTML == element.parentNode.parentNode.children[0].innerHTML) && (x.parentNode.children[2].innerHTML == element.parentNode.parentNode.children[2].innerHTML) && (x.parentNode.children[1].innerHTML == element.parentNode.parentNode.parentNode.children[0].children[0].innerHTML)){
+              newStr = false;
+          }
+      }
+      if (newStr){
+          table.innerHTML += "<tr><td class=\"name\">" + element.parentNode.parentNode.children[0].innerHTML +
+              "</td><td class=\"cost2\">" + element.parentNode.parentNode.parentNode.children[0].children[0].innerHTML +"</td><td>"+ element.parentNode.parentNode.children[2].innerHTML +"</td><td>"+ element.parentNode.parentNode.children[3].innerHTML + "</tr>";
+      }
+  }
+</script>
+
+<table border="2">
+  <th colspan="5">Mon</th>
+  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td><td></td></tr>
+  <% unless @id_mon.nil?%>
+    <% @id_mon.each do |elem| %>
+      <tr>
+        <td><%=elem.second%></td>
+        <td><%=elem.third %></td>
+        <td><%=elem.first %></td>
+        <td><%=elem.fourth %></td>
+        <td><button class="btn-primary" onclick ="add(this);">Add</button></td>
+      </tr>
+    <%end %>
+  <%end %>
+</table>
+</br>
+<table border="2">
+  <th colspan="4">Tue</th>
+  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td></tr>
+  <% unless @id_tue.nil?%>
+    <% @id_tue.each do |elem| %>
+      <tr>
+        <td><%=elem.second%></td>
+        <td><%=elem.third %></td>
+        <td><%=elem.first %></td>
+        <td><%=elem.fourth %></td>
+      </tr>
+    <%end %>
+  <%end %>
+</table>
+</br>
+<table border="2">
+  <th colspan="4">Wed</th>
+  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td></tr>
+  <% unless @id_wed.nil?%>
+    <% @id_wed.each do |elem| %>
+      <tr>
+        <td><%=elem.second%></td>
+        <td><%=elem.third %></td>
+        <td><%=elem.first %></td>
+        <td><%=elem.fourth %></td>
+      </tr>
+    <%end %>
+  <%end %>
+</table>
+</br>
+<table border="2">
+  <th colspan="4">Thu</th>
+  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td></tr>
+  <% unless @id_thu.nil?%>
+    <% @id_thu.each do |elem| %>
+      <tr>
+        <td><%=elem.second%></td>
+        <td><%=elem.third %></td>
+        <td><%=elem.first %></td>
+        <td><%=elem.fourth %></td>
+      </tr>
+    <%end %>
+  <%end %>
+</table>
+</br>
+<table border="2">
+  <th colspan="4">Fri</th>
+  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td></tr>
+  <% unless @id_fri.nil?%>
+    <% @id_fri.each do |elem| %>
+      <tr>
+        <td><%=elem.second%></td>
+        <td><%=elem.third %></td>
+        <td><%=elem.first %></td>
+        <td><%=elem.fourth %></td>
+      </tr>
+    <%end %>
+  <%end %>
+</table>
+</br>
+<table border="2">
+  <th colspan="4">Sat</th>
+  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td></tr>
+  <% unless @id_sat.nil?%>
+    <% @id_sat.each do |elem| %>
+      <tr>
+        <td><%=elem.second%></td>
+        <td><%=elem.third %></td>
+        <td><%=elem.first %></td>
+        <td><%=elem.fourth %></td>
+      </tr>
+    <%end %>
+  <%end %>
+</table>
+</br>
+<table id="obs"></table>
+
