@@ -1,29 +1,15 @@
 <h1>Table#input</h1>
 <p>Find me in app/views/table/input.html.erb</p>
-<%= form_tag("/table/view_one", :method => "get") do %>
-  <%= label_tag("Input name:") %>
-  <%= text_field_tag(:name) %>
-  <%= label_tag("Input profession:") %>
-  <%= text_field_tag(:prof) %>
-  <%= label_tag("Input day:") %>
-  <%= text_field_tag(:day) %>
-  <%= label_tag("Input time:") %>
-  <%= text_field_tag(:time) %>
-  <%= label_tag("Input cabinet:") %>
-  <%= text_field_tag(:cab) %>
+<%= form_tag("/table/view_tree", :method => "get") do %>
+  <%= label_tag("Input password:") %>
+  <%= text_field_tag(:adm) %>
   <br/>
-  <%= submit_tag("Output result") %>
-<% end %>
-<%= form_tag("/table/cached", :method => "get") do %>
-  <%= submit_tag("Output cache") %>
-<% end %>
-<%= form_tag("/table/cached_two", :method => "get") do %>
-  <%= submit_tag("Output cache") %>
+  <%= submit_tag("Admin page") %>
 <% end %>
 <br/>
-<%= form_tag("/table/view_two", :method => "get") do %>
-  <%= submit_tag("Output cache") %>
+<%= form_tag("/table/view_one", :method => "get") do %>
+  <%= submit_tag("One") %>
 <% end %>
-<%= form_tag("/table/view_tree", :method => "get") do %>
+<%= form_tag("/table/view_two", :method => "get") do %>
   <%= submit_tag("Output cache") %>
 <% end %>

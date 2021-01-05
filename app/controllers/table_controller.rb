@@ -1,5 +1,6 @@
 class TableController < ApplicationController
   def input
+    @admin=true
   end
 
   def view_one
@@ -8,6 +9,7 @@ class TableController < ApplicationController
     input_time=params[:time]
     input_day=params[:day]
     input_cab=params[:cab]
+    if input_name!=nil and input_prof!=nil and input_time=!nil and input_day=!nil and input_name!=""
       cached_result = CachedResult.new
       cached_result.name = input_name
       cached_result.profession = input_prof
@@ -15,16 +17,20 @@ class TableController < ApplicationController
       cached_result.time = input_time
       cached_result.cabinet = input_cab
       cached_result.save!
-
+    end
 
     id_mon=[]
     @id_mon=[]
     CachedResult.all.each do |inst|
       if inst.day == "Mon"
-        if Record.find_by(unique: inst.id).nil?
-          id_mon<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+        if input_day==nil
+          if Record.find_by(unique: inst.id).nil?
+            id_mon<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+          else
+            id_mon<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          end
         else
-          id_mon<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          id_mon<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
         end
       end
     end
@@ -35,10 +41,14 @@ class TableController < ApplicationController
     @id_tue=[]
     CachedResult.all.each do |inst|
       if inst.day == "Tue"
-        if Record.find_by(unique: inst.id).nil?
-          id_tue<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+        if input_day==nil
+          if Record.find_by(unique: inst.id).nil?
+            id_tue<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+          else
+            id_tue<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          end
         else
-          id_tue<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          id_tue<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
         end
       end
     end
@@ -49,10 +59,14 @@ class TableController < ApplicationController
     @id_wed=[]
     CachedResult.all.each do |inst|
       if inst.day == "Wed"
-        if Record.find_by(unique: inst.id).nil?
-          id_wed<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+        if input_day==nil
+          if Record.find_by(unique: inst.id).nil?
+            id_wed<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+          else
+            id_wed<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          end
         else
-          id_wed<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          id_wed<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
         end
       end
     end
@@ -63,10 +77,14 @@ class TableController < ApplicationController
     @id_thu=[]
     CachedResult.all.each do |inst|
       if inst.day == "Thu"
-        if Record.find_by(unique: inst.id).nil?
-          id_thu<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+        if input_day==nil
+          if Record.find_by(unique: inst.id).nil?
+            id_thu<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+          else
+            id_thu<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          end
         else
-          id_thu<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          id_thu<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
         end
       end
     end
@@ -77,10 +95,14 @@ class TableController < ApplicationController
     @id_fri=[]
     CachedResult.all.each do |inst|
       if inst.day == "Fri"
-        if Record.find_by(unique: inst.id).nil?
-          id_fri<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+        if input_day==nil
+          if Record.find_by(unique: inst.id).nil?
+            id_fri<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+          else
+            id_fri<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          end
         else
-          id_fri<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          id_fri<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
         end
       end
     end
@@ -91,10 +113,14 @@ class TableController < ApplicationController
     @id_sat=[]
     CachedResult.all.each do |inst|
       if inst.day == "Sat"
-        if Record.find_by(unique: inst.id).nil?
-          id_sat<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+        if input_day==nil
+          if Record.find_by(unique: inst.id).nil?
+            id_sat<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.id]
+          else
+            id_sat<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          end
         else
-          id_sat<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
+          id_sat<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
         end
       end
     end
@@ -121,18 +147,33 @@ class TableController < ApplicationController
   end
 
   def view_two
+    @array=[]
     id=params[:res]
-    name="artur"
-    record = Record.find_or_initialize_by(unique: id)
-
-    if record.new_record?
-      record.name = name
-      record.save!
-      @resul="sve horosho zapisalos"
+    name="arturr"
+    if id!=nil
+      record = Record.find_or_initialize_by(unique: id)
+      if record.new_record?
+        record.name = name
+        record.save!
+        @resul="sve horosho zapisalos"
+      end
+    end
+    Record.all.each do |i|
+      if i.name==name
+        CachedResult.all.each do |inst|
+          if inst.id == i.unique
+            @array<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.day]
+          end
+        end
+      end
     end
   end
 
   def view_tree
+    pass=params[:adm]
+    unless pass == "1234"
+      redirect_to table_input_path
+    end
   end
 
 end

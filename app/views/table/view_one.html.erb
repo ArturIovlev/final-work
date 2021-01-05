@@ -1,29 +1,6 @@
 <h1>Table#view_one</h1>
 <p>Find me in app/views/table/view_one.html.erb</p>
 
-
-<script>
-  emptyTable = true;
-  function add(element){
-      var NName = document.getElementsByClassName("name");
-      newStr = true;
-      table = document.getElementById("obs")
-      if (emptyTable) {
-          emptyTable = false;
-          table.innerHTML += "<tr><th>Name</th><th>Day</th><th>Time</th><th>Cabinet</th></tr>"
-      }
-      for (x of NName){
-          if((x.innerHTML == element.parentNode.parentNode.children[0].innerHTML) && (x.parentNode.children[2].innerHTML == element.parentNode.parentNode.children[2].innerHTML) && (x.parentNode.children[1].innerHTML == element.parentNode.parentNode.parentNode.children[0].children[0].innerHTML)){
-              newStr = false;
-          }
-      }
-      if (newStr){
-          table.innerHTML += "<tr><td class=\"name\">" + element.parentNode.parentNode.children[0].innerHTML +
-              "</td><td class=\"cost2\">" + element.parentNode.parentNode.parentNode.children[0].children[0].innerHTML +"</td><td>"+ element.parentNode.parentNode.children[2].innerHTML +"</td><td>"+ element.parentNode.parentNode.children[3].innerHTML + "</tr>";
-      }
-  }
-</script>
-
 <table border="2">
   <th colspan="5">Mon</th>
   <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td><td></td></tr>
@@ -34,15 +11,19 @@
         <td><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
-        <%if elem.fifth!=-1 %>
+        <%if elem.fifth!=-1 and elem.fifth!=-2 %>
           <td>
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>
-        <% else %>
-          <td><p>Recording is not available</p></td>
+        <% end %>
+        <%if elem.fifth==-1 %>
+          <td>Recording is not available</td>
+        <%end %>
+        <%if elem.fifth==-2 %>
+          <td>Yua are in admin mood</td>
         <%end %>
       </tr>
     <%end %>
@@ -59,15 +40,19 @@
         <td><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
-        <%if elem.fifth!=-1 %>
+        <%if elem.fifth!=-1 and elem.fifth!=-2 %>
           <td>
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>
-        <% else %>
-          <td><p>Recording is not available</p></td>
+        <% end %>
+        <%if elem.fifth==-1 %>
+          <td>Recording is not available</td>
+        <%end %>
+        <%if elem.fifth==-2 %>
+          <td>Yua are in admin mood</td>
         <%end %>
       </tr>
     <%end %>
@@ -84,15 +69,19 @@
         <td><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
-        <%if elem.fifth!=-1 %>
+        <%if elem.fifth!=-1 and elem.fifth!=-2 %>
           <td>
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>
-        <% else %>
-          <td><p>Recording is not available</p></td>
+        <% end %>
+        <%if elem.fifth==-1 %>
+          <td>Recording is not available</td>
+        <%end %>
+        <%if elem.fifth==-2 %>
+          <td>Yua are in admin mood</td>
         <%end %>
       </tr>
     <%end %>
@@ -109,15 +98,19 @@
         <td><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
-        <%if elem.fifth!=-1 %>
+        <%if elem.fifth!=-1 and elem.fifth!=-2 %>
           <td>
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>
-        <% else %>
-          <td><p>Recording is not available</p></td>
+        <% end %>
+        <%if elem.fifth==-1 %>
+          <td>Recording is not available</td>
+        <%end %>
+        <%if elem.fifth==-2 %>
+          <td>Yua are in admin mood</td>
         <%end %>
       </tr>
     <%end %>
@@ -134,15 +127,19 @@
         <td><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
-        <%if elem.fifth!=-1 %>
+        <%if elem.fifth!=-1 and elem.fifth!=-2 %>
           <td>
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>
-        <% else %>
-          <td><p>Recording is not available</p></td>
+        <% end %>
+        <%if elem.fifth==-1 %>
+          <td>Recording is not available</td>
+        <%end %>
+        <%if elem.fifth==-2 %>
+          <td>Yua are in admin mood</td>
         <%end %>
       </tr>
     <%end %>
@@ -159,21 +156,25 @@
         <td><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
-        <%if elem.fifth!=-1 %>
+        <%if elem.fifth!=-1 and elem.fifth!=-2 %>
           <td>
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>
-        <% else %>
-          <td><p>Recording is not available</p></td>
+        <% end %>
+        <%if elem.fifth==-1 %>
+          <td>Recording is not available</td>
+        <%end %>
+        <%if elem.fifth==-2 %>
+          <td>Yua are in admin mood</td>
         <%end %>
       </tr>
     <%end %>
   <%end %>
 </table>
 </br>
-<table border="2", id="obs"></table>
+<%= link_to "Return back", :back %>
 
 
