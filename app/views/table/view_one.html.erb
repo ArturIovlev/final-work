@@ -1,14 +1,47 @@
 <h1>Table#view_one</h1>
 <p>Find me in app/views/table/view_one.html.erb</p>
 
+<script>
+  function fun(){
+      var t = 0
+      var table = document.getElementById("otv")
+      var text = document.getElementById("text").value
+      var radio2 = document.getElementById("c2").checked
+      var radio1 = document.getElementById("c1").checked
+      if (radio1==true){
+          table.innerHTML = "<tr><td>"+"Day"+"<td/><td>"+"Time"+"</td></tr>"
+          var name = document.getElementsByClassName("name")
+          for (x of name){
+              if ((x.innerHTML==text)&&(x.parentNode.children[4].innerHTML!="Recording is not available")){
+                  t = 1
+                  table.innerHTML += "<tr><td>"+x.parentNode.parentNode.children[0].children[0].innerHTML+"<td/><td>"+x.parentNode.children[2].innerHTML+"</td></tr>"
+              }
+          }
+      }
+      if (radio2==true){
+          table.innerHTML = "<tr><td>"+"Day"+"<td/><td>"+"Time"+"</td></tr>"
+          var name = document.getElementsByClassName("prof")
+          for (x of name){
+              if ((x.innerHTML==text)&&(x.parentNode.children[4].innerHTML!="Recording is not available")){
+                  t=1
+                  table.innerHTML += "<tr><td>"+x.parentNode.parentNode.children[0].children[0].innerHTML+"<td/><td>"+x.parentNode.children[2].innerHTML+"</td></tr>"
+              }
+          }
+      }
+      if (t==0){
+          table.innerHTML="<tr><td>"+"Nothing found"+"<tr/><td/>"
+      }
+  }
+</script>
+
 <table border="2">
   <th colspan="5">Mon</th>
-  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td><td></td></tr>
+  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet </td><td></td></tr>
   <% unless @id_mon.nil?%>
     <% @id_mon.each do |elem| %>
       <tr>
-        <td><%=elem.second%></td>
-        <td><%=elem.third %></td>
+        <td class="name"><%=elem.second%></td>
+        <td class="prof"><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
         <%if elem.fifth!=-1 and elem.fifth!=-2 %>
@@ -23,7 +56,12 @@
           <td>Recording is not available</td>
         <%end %>
         <%if elem.fifth==-2 %>
-          <td>Yua are in admin mood</td>
+          <td>
+          <%= form_tag("/table/view_one", :method => "get") do %>
+            <%= hidden_field_tag(:del,"#{elem[5]}") %>
+            <%= submit_tag(value ="Delete") %>
+          <% end %>
+          <td/>
         <%end %>
       </tr>
     <%end %>
@@ -35,13 +73,13 @@
   <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td><td></td></tr>
   <% unless @id_tue.nil?%>
     <% @id_tue.each do |elem| %>
-      <tr>
-        <td><%=elem.second%></td>
-        <td><%=elem.third %></td>
+      <>
+        <td class="name"><%=elem.second%></td>
+        <td class="prof"><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
         <%if elem.fifth!=-1 and elem.fifth!=-2 %>
-          <td>
+          <td >
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
@@ -52,7 +90,10 @@
           <td>Recording is not available</td>
         <%end %>
         <%if elem.fifth==-2 %>
-          <td>Yua are in admin mood</td>
+            <%= form_tag("/table/view_one", :method => "get") do %>
+              <%= hidden_field_tag(:del,"#{elem[5]}") %>
+          <th><%= submit_tag(value ="Delete") %></th>
+            <% end %>
         <%end %>
       </tr>
     <%end %>
@@ -65,8 +106,8 @@
   <% unless @id_wed.nil?%>
     <% @id_wed.each do |elem| %>
       <tr>
-        <td><%=elem.second%></td>
-        <td><%=elem.third %></td>
+        <td class="name"><%=elem.second%></td>
+        <td class="prof"><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
         <%if elem.fifth!=-1 and elem.fifth!=-2 %>
@@ -81,7 +122,10 @@
           <td>Recording is not available</td>
         <%end %>
         <%if elem.fifth==-2 %>
-          <td>Yua are in admin mood</td>
+            <%= form_tag("/table/view_one", :method => "get") do %>
+              <%= hidden_field_tag(:del,"#{elem[5]}") %>
+            <th><%= submit_tag(value ="Delete") %></th>
+            <% end %>
         <%end %>
       </tr>
     <%end %>
@@ -94,8 +138,8 @@
   <% unless @id_thu.nil?%>
     <% @id_thu.each do |elem| %>
       <tr>
-        <td><%=elem.second%></td>
-        <td><%=elem.third %></td>
+        <td class="name"><%=elem.second%></td>
+        <td class="prof"><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
         <%if elem.fifth!=-1 and elem.fifth!=-2 %>
@@ -110,7 +154,10 @@
           <td>Recording is not available</td>
         <%end %>
         <%if elem.fifth==-2 %>
-          <td>Yua are in admin mood</td>
+            <%= form_tag("/table/view_one", :method => "get") do %>
+              <%= hidden_field_tag(:del,"#{elem[5]}") %>
+            <th><%= submit_tag(value ="Delete") %></th>
+            <% end %>
         <%end %>
       </tr>
     <%end %>
@@ -119,12 +166,12 @@
 </br>
 <table border="2">
   <th colspan="5">Fri</th>
-  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td><td></td></tr>
+  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td></tr>
   <% unless @id_fri.nil?%>
     <% @id_fri.each do |elem| %>
       <tr>
-        <td><%=elem.second%></td>
-        <td><%=elem.third %></td>
+        <td class="name"><%=elem.second%></td>
+        <td class="prof"><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
         <%if elem.fifth!=-1 and elem.fifth!=-2 %>
@@ -139,7 +186,10 @@
           <td>Recording is not available</td>
         <%end %>
         <%if elem.fifth==-2 %>
-          <td>Yua are in admin mood</td>
+            <%= form_tag("/table/view_one", :method => "get") do %>
+              <%= hidden_field_tag(:del,"#{elem[5]}") %>
+            <th><%= submit_tag(value ="Delete") %></th>
+            <% end %>
         <%end %>
       </tr>
     <%end %>
@@ -148,12 +198,12 @@
 </br>
 <table border="2">
   <th colspan="5">Sat</th>
-  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td><td></td></tr>
+  <tr><td>Name</td><td>Profession</td><td>Time</td><td>Cabinet</td></tr>
   <% unless @id_sat.nil?%>
     <% @id_sat.each do |elem| %>
       <tr>
-        <td><%=elem.second%></td>
-        <td><%=elem.third %></td>
+        <td class="name"><%=elem.second%></td>
+        <td class="prof"><%=elem.third %></td>
         <td><%=elem.first %></td>
         <td><%=elem.fourth %></td>
         <%if elem.fifth!=-1 and elem.fifth!=-2 %>
@@ -168,13 +218,23 @@
           <td>Recording is not available</td>
         <%end %>
         <%if elem.fifth==-2 %>
-          <td>Yua are in admin mood</td>
+            <%= form_tag("/table/view_one", :method => "get") do %>
+              <%= hidden_field_tag(:del,"#{elem[5]}") %>
+            <th><%= submit_tag(value ="Delete") %></th>
+            <% end %>
         <%end %>
       </tr>
     <%end %>
   <%end %>
 </table>
 </br>
+<form action="input10.php">
+  <p>Name<input type="radio" name="Name" id="c1" value="Name"></p>
+  <p>Profession<input type="radio" name="Name" id="c2" value="Profession"></p>
+  <input type="text" id="text">
+  <input type="button" value="Find" onclick="fun()">
+</form>
+<table id="otv"></table>
 <%= link_to "Return back", :back %>
 
 

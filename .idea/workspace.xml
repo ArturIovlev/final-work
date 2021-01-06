@@ -4,7 +4,6 @@
     <list default="true" id="26c852e6-f531-4fef-9be5-cb87c74f6df6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/table_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/table_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/table/input.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/table/input.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/table/view_one.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/table/view_one.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/table/view_tree.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/table/view_tree.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/table/view_two.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/table/view_two.html.erb" afterDir="false" />
@@ -145,7 +144,9 @@
       <workItem from="1609850171222" duration="6864000" />
       <workItem from="1609860060123" duration="981000" />
       <workItem from="1609861392829" duration="3949000" />
-      <workItem from="1609865733305" duration="318000" />
+      <workItem from="1609865733305" duration="483000" />
+      <workItem from="1609875688586" duration="508000" />
+      <workItem from="1609935743761" duration="8299000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,28 @@
 <h1>Table#view_two</h1>
 <p>Find me in app/views/table/view_two.html.erb</p>
 <%=@resul%>
-<%=@array%>
+<%=@del%>
+<%if @array!=[] %>
+<table border="2">
+  <th colspan="5">Vashi zapisi</th>
+  <tr><td>Name</td><td>Profession</td><td>Day</td><td>Time</td><td>Cabinet</td></tr>
+  <% unless @array.nil?%>
+    <% @array.each do |elem| %>
+      <tr>
+        <td><%=elem.second%></td>
+        <td><%=elem.third %></td>
+        <td><%=elem.fifth %></td>
+        <td><%=elem.first %></td>
+        <td><%=elem.fourth %></td>
+        <td><%= form_tag("/table/view_two", :method => "get") do %>
+            <%= hidden_field_tag(:del,"#{elem[5]}") %>
+            <%= submit_tag(value ="Delete") %>
+          <% end %>
+        </td>
+      </tr>
+    <%end %>
+  <%end %>
+</table>
+<%else %>
+  <p>U vas net zapisey</p>
+<%end %>

@@ -4,12 +4,23 @@ class TableController < ApplicationController
   end
 
   def view_one
+    del =params[:del]
     input_name=params[:name]
     input_prof=params[:prof]
     input_time=params[:time]
     input_day=params[:day]
     input_cab=params[:cab]
-    if input_name!=nil and input_prof!=nil and input_time=!nil and input_day=!nil and input_name!=""
+    if del!=nil
+      input_day=""
+      unless CachedResult.find_by(id: del).nil?
+        CachedResult.find_by(id: del).destroy
+      end
+      unless Record.find_by(unique: del).nil?
+        Record.find_by(unique: del).destroy
+      end
+      del=nil
+    end
+    if input_name!=nil and input_prof!=nil and input_time!=nil and input_day!=nil and input_day!=""
       cached_result = CachedResult.new
       cached_result.name = input_name
       cached_result.profession = input_prof
@@ -30,7 +41,7 @@ class TableController < ApplicationController
             id_mon<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
           end
         else
-          id_mon<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
+          id_mon<<[inst.time,inst.name,inst.profession,inst.cabinet,-2,inst.id]
         end
       end
     end
@@ -48,7 +59,7 @@ class TableController < ApplicationController
             id_tue<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
           end
         else
-          id_tue<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
+          id_tue<<[inst.time,inst.name,inst.profession,inst.cabinet,-2,inst.id]
         end
       end
     end
@@ -66,7 +77,7 @@ class TableController < ApplicationController
             id_wed<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
           end
         else
-          id_wed<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
+          id_wed<<[inst.time,inst.name,inst.profession,inst.cabinet,-2,inst.id]
         end
       end
     end
@@ -84,7 +95,7 @@ class TableController < ApplicationController
             id_thu<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
           end
         else
-          id_thu<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
+          id_thu<<[inst.time,inst.name,inst.profession,inst.cabinet,-2,inst.id]
         end
       end
     end
@@ -102,7 +113,7 @@ class TableController < ApplicationController
             id_fri<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
           end
         else
-          id_fri<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
+          id_fri<<[inst.time,inst.name,inst.profession,inst.cabinet,-2,inst.id]
         end
       end
     end
@@ -120,7 +131,7 @@ class TableController < ApplicationController
             id_sat<<[inst.time,inst.name,inst.profession,inst.cabinet,-1]
           end
         else
-          id_sat<<[inst.time,inst.name,inst.profession,inst.cabinet,-2]
+          id_sat<<[inst.time,inst.name,inst.profession,inst.cabinet,-2,inst.id]
         end
       end
     end
@@ -147,9 +158,14 @@ class TableController < ApplicationController
   end
 
   def view_two
+    del=params[:del]
+    if del!=nil
+      Record.find_by(unique: del).destroy
+      del=nil
+    end
     @array=[]
     id=params[:res]
-    name="arturr"
+    name="arturrr"
     if id!=nil
       record = Record.find_or_initialize_by(unique: id)
       if record.new_record?
@@ -162,7 +178,7 @@ class TableController < ApplicationController
       if i.name==name
         CachedResult.all.each do |inst|
           if inst.id == i.unique
-            @array<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.day]
+            @array<<[inst.time,inst.name,inst.profession,inst.cabinet,inst.day,inst.id]
           end
         end
       end
