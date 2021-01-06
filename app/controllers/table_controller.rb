@@ -1,9 +1,13 @@
 class TableController < ApplicationController
   def input
+    if (params[:nik]!=nil)
+      @nik=params[:nik]
+    end
     @admin=true
   end
 
   def view_one
+    @nik =params[:nik]
     del =params[:del]
     input_name=params[:name]
     input_prof=params[:prof]
@@ -158,6 +162,7 @@ class TableController < ApplicationController
   end
 
   def view_two
+    name=params[:nik]
     del=params[:del]
     if del!=nil
       Record.find_by(unique: del).destroy
@@ -165,7 +170,7 @@ class TableController < ApplicationController
     end
     @array=[]
     id=params[:res]
-    name="arturrr"
+    @nik=name
     if id!=nil
       record = Record.find_or_initialize_by(unique: id)
       if record.new_record?
@@ -191,5 +196,4 @@ class TableController < ApplicationController
       redirect_to table_input_path
     end
   end
-
 end

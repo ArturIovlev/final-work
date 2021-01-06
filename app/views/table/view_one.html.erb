@@ -48,6 +48,7 @@
           <td>
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
+              <%= hidden_field_tag(:nik,"#{@nik}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>
@@ -56,12 +57,10 @@
           <td>Recording is not available</td>
         <%end %>
         <%if elem.fifth==-2 %>
-          <td>
           <%= form_tag("/table/view_one", :method => "get") do %>
             <%= hidden_field_tag(:del,"#{elem[5]}") %>
-            <%= submit_tag(value ="Delete") %>
+            <td><%= submit_tag(value ="Delete") %></td>
           <% end %>
-          <td/>
         <%end %>
       </tr>
     <%end %>
@@ -82,6 +81,7 @@
           <td >
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
+              <%= hidden_field_tag(:nik,"#{@nik}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>
@@ -114,6 +114,7 @@
           <td>
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
+              <%= hidden_field_tag(:nik,"#{@nik}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>
@@ -146,6 +147,7 @@
           <td>
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
+              <%= hidden_field_tag(:nik,"#{@nik}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>
@@ -178,6 +180,7 @@
           <td>
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
+              <%= hidden_field_tag(:nik,"#{@nik}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>
@@ -210,6 +213,7 @@
           <td>
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
+              <%= hidden_field_tag(:nik,"#{@nik}") %>
               <%= submit_tag(value ="Зарегистрироваться") %>
             <% end %>
           </td>

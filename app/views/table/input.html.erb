@@ -4,12 +4,15 @@
   <%= label_tag("Input password:") %>
   <%= text_field_tag(:adm) %>
   <br/>
+  <p><%=@nik %></p>
   <%= submit_tag("Admin page") %>
 <% end %>
 <br/>
 <%= form_tag("/table/view_one", :method => "get") do %>
+  <%= hidden_field_tag(:nik,"#{@nik}") %>
   <%= submit_tag("One") %>
 <% end %>
 <%= form_tag("/table/view_two", :method => "get") do %>
+  <%= hidden_field_tag(:nik,"#{@nik}") %>
   <%= submit_tag("Output cache") %>
 <% end %>
