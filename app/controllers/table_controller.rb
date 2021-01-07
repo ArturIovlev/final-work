@@ -191,9 +191,10 @@ class TableController < ApplicationController
   end
 
   def view_tree
+    @nik =params[:nik]
     pass=params[:adm]
     unless pass == "1234"
-      redirect_to table_input_path
+      redirect_to root_path(:nik=> params[:nik])
     end
   end
 end

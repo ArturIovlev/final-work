@@ -204,6 +204,7 @@ td{
         <%if elem.fifth==-2 %>
           <%= form_tag("/table/view_one", :method => "get") do %>
             <%= hidden_field_tag(:del,"#{elem[5]}") %>
+            <%= hidden_field_tag(:nik,"#{@nik}") %>
             <td><%= submit_tag(value ="Delete",:class=>"all") %></td>
           <% end %>
         <%end %>
@@ -237,6 +238,7 @@ td{
         <%if elem.fifth==-2 %>
             <%= form_tag("/table/view_one", :method => "get") do %>
               <%= hidden_field_tag(:del,"#{elem[5]}") %>
+          <%= hidden_field_tag(:nik,"#{@nik}") %>
           <th><%= submit_tag(value ="Delete",:class=>"all") %></th>
             <% end %>
         <%end %>
@@ -270,6 +272,7 @@ td{
         <%if elem.fifth==-2 %>
             <%= form_tag("/table/view_one", :method => "get") do %>
               <%= hidden_field_tag(:del,"#{elem[5]}") %>
+            <%= hidden_field_tag(:nik,"#{@nik}") %>
             <th><%= submit_tag(value ="Delete",:class=>"all") %></th>
             <% end %>
         <%end %>
@@ -303,6 +306,7 @@ td{
         <%if elem.fifth==-2 %>
             <%= form_tag("/table/view_one", :method => "get") do %>
               <%= hidden_field_tag(:del,"#{elem[5]}") %>
+            <%= hidden_field_tag(:nik,"#{@nik}") %>
             <th><%= submit_tag(value ="Delete",:class=>"all") %></th>
             <% end %>
         <%end %>
@@ -336,6 +340,7 @@ td{
         <%if elem.fifth==-2 %>
             <%= form_tag("/table/view_one", :method => "get") do %>
               <%= hidden_field_tag(:del,"#{elem[5]}") %>
+            <%= hidden_field_tag(:nik,"#{@nik}") %>
             <th><%= submit_tag(value ="Delete",:class=>"all") %></th>
             <% end %>
         <%end %>
@@ -368,7 +373,8 @@ td{
         <%end %>
         <%if elem.fifth==-2 %>
             <%= form_tag("/table/view_one", :method => "get") do %>
-              <%= hidden_field_tag(:del,"#{elem[5]}") %>
+            <%= hidden_field_tag(:nik,"#{@nik}") %>
+            <%= hidden_field_tag(:del,"#{elem[5]}") %>
             <th><%= submit_tag(value ="Delete",:class=>"all") %></th>
             <% end %>
         <%end %>

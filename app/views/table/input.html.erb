@@ -71,6 +71,7 @@
     <p>
       <%= form_tag("/table/view_tree", :method => "get",:class=>"lol") do %>
         <%= text_field_tag(:adm) %>
+        <%= hidden_field_tag(:nik,"#{@nik}") %>
         <%= submit_tag("Admin page") %>
       <% end %>
     </p>
