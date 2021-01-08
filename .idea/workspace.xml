@@ -3,13 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="26c852e6-f531-4fef-9be5-cb87c74f6df6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/table_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/table_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/session/login.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/session/login.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/table/input.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/table/input.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/table/view_one.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/table/view_one.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/table/view_tree.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/table/view_tree.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/table/view_two.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/table/view_two.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/edit.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/locales/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/en.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +23,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1mbY8Tq2n1LDQZGqHGu4NN58Khg" />
   <component name="ProjectViewState">
@@ -28,7 +41,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/config/locales" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config/locales" />
+    </key>
   </component>
   <component name="RunManager" selected="Rails.Development: last">
     <configuration name="Development: last" type="RailsRunConfigurationType" factoryName="Rails">
@@ -170,6 +188,12 @@
       <workItem from="1610058227462" duration="1720000" />
       <workItem from="1610060047747" duration="1742000" />
       <workItem from="1610061878957" duration="132000" />
+      <workItem from="1610109694964" duration="21000" />
+      <workItem from="1610111945305" duration="1339000" />
+      <workItem from="1610113379811" duration="1743000" />
+      <workItem from="1610115223486" duration="1735000" />
+      <workItem from="1610117251031" duration="1727000" />
+      <workItem from="1610119072982" duration="299000" />
     </task>
     <servers />
   </component>

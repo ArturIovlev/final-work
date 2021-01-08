@@ -26,26 +26,24 @@ form{
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2>1 <%=t("item.err_one") %></h2>
 
       <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+        <li><%= t("item.err_two") %></li>
       </ul>
     </div>
   <% end %>
 
   <div class="field" >
-    <%= form.text_field :username,:class=>"form-control",placeholder: "Name" %>
+    <%= form.text_field :username,:class=>"form-control",placeholder: t("item.name") %>
   </div>
 
   <div class="field">
-    <%= form.text_field :password,:class=>"form-control",placeholder: "Password" %>
+    <%= form.text_field :password,:class=>"form-control",placeholder: t("item.password") %>
   </div>
 
   <div class="actions">
-    <%= form.submit :class=>"form-control" %>
+    <%= form.submit t("item.create"), :class=>"form-control" %>
   </div>
 
 <% end %>
