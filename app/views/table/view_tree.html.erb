@@ -84,6 +84,7 @@
       <br/>
       <%= submit_tag(t("item.entr_info"),:class=>"all") %>
       <%= hidden_field_tag(:nik,"#{@nik}") %>
+      <%= hidden_field_tag(:locale,"#{@locale}") %>
     <% end %>
     <%= form_tag("/table/cached", :method => "get") do %>
       <%= submit_tag(t("item.tab_db"),:class=>"all") %>
@@ -93,6 +94,7 @@
     <% end %>
     <%= form_tag("/table/input", :method => "get") do %>
       <%= hidden_field_tag(:nik,"#{@nik}") %>
+      <%= hidden_field_tag(:locale,"#{@locale}") %>
       <%= submit_tag(value =t("item.back"),:class=>"all") %>
     <% end %>
   </div>

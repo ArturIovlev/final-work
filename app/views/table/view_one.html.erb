@@ -194,6 +194,7 @@ td{
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= hidden_field_tag(:nik,"#{@nik}") %>
+              <%= hidden_field_tag(:locale,"#{@locale}") %>
               <%= submit_tag(value =t("item.to_make"), :class=>"all") %>
             <% end %>
           </td>
@@ -205,6 +206,7 @@ td{
           <%= form_tag("/table/view_one", :method => "get") do %>
             <%= hidden_field_tag(:del,"#{elem[5]}") %>
             <%= hidden_field_tag(:nik,"#{@nik}") %>
+            <%= hidden_field_tag(:locale,"#{@locale}") %>
             <td><%= submit_tag(value =t("item.delete"),:class=>"all") %></td>
           <% end %>
         <%end %>
@@ -228,6 +230,7 @@ td{
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= hidden_field_tag(:nik,"#{@nik}") %>
+              <%= hidden_field_tag(:locale,"#{@locale}") %>
               <%= submit_tag(value =t("item.to_make"),:class=>"all") %>
             <% end %>
           </td>
@@ -239,6 +242,7 @@ td{
             <%= form_tag("/table/view_one", :method => "get") do %>
               <%= hidden_field_tag(:del,"#{elem[5]}") %>
           <%= hidden_field_tag(:nik,"#{@nik}") %>
+          <%= hidden_field_tag(:locale,"#{@locale}") %>
           <th><%= submit_tag(value =t("item.delete"),:class=>"all") %></th>
             <% end %>
         <%end %>
@@ -262,6 +266,7 @@ td{
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= hidden_field_tag(:nik,"#{@nik}") %>
+              <%= hidden_field_tag(:locale,"#{@locale}") %>
               <%= submit_tag(value =t("item.to_make"),:class=>"all") %>
             <% end %>
           </td>
@@ -273,6 +278,7 @@ td{
             <%= form_tag("/table/view_one", :method => "get") do %>
               <%= hidden_field_tag(:del,"#{elem[5]}") %>
             <%= hidden_field_tag(:nik,"#{@nik}") %>
+            <%= hidden_field_tag(:locale,"#{@locale}") %>
             <th><%= submit_tag(value =t("item.delete"),:class=>"all") %></th>
             <% end %>
         <%end %>
@@ -296,6 +302,7 @@ td{
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= hidden_field_tag(:nik,"#{@nik}") %>
+              <%= hidden_field_tag(:locale,"#{@locale}") %>
               <%= submit_tag(value =t("item.to_make"),:class=>"all") %>
             <% end %>
           </td>
@@ -307,6 +314,7 @@ td{
             <%= form_tag("/table/view_one", :method => "get") do %>
               <%= hidden_field_tag(:del,"#{elem[5]}") %>
             <%= hidden_field_tag(:nik,"#{@nik}") %>
+            <%= hidden_field_tag(:locale,"#{@locale}") %>
             <th><%= submit_tag(value =t("item.delete"),:class=>"all") %></th>
             <% end %>
         <%end %>
@@ -330,6 +338,7 @@ td{
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= hidden_field_tag(:nik,"#{@nik}") %>
+              <%= hidden_field_tag(:locale,"#{@locale}") %>
               <%= submit_tag(value =t("item.to_make"),:class=>"all") %>
             <% end %>
           </td>
@@ -341,6 +350,7 @@ td{
             <%= form_tag("/table/view_one", :method => "get") do %>
               <%= hidden_field_tag(:del,"#{elem[5]}") %>
             <%= hidden_field_tag(:nik,"#{@nik}") %>
+            <%= hidden_field_tag(:locale,"#{@locale}") %>
             <th><%= submit_tag(value =t("item.delete"),:class=>"all") %></th>
             <% end %>
         <%end %>
@@ -364,6 +374,7 @@ td{
             <%= form_tag("/table/view_two", :method => "get") do %>
               <%= hidden_field_tag(:res,"#{elem.fifth}") %>
               <%= hidden_field_tag(:nik,"#{@nik}") %>
+              <%= hidden_field_tag(:locale,"#{@locale}") %>
               <%= submit_tag(value =t("item.to_make"),:class=>"all") %>
             <% end %>
           </td>
@@ -374,6 +385,7 @@ td{
         <%if elem.fifth==-2 %>
             <%= form_tag("/table/view_one", :method => "get") do %>
             <%= hidden_field_tag(:nik,"#{@nik}") %>
+            <%= hidden_field_tag(:locale,"#{@locale}") %>
             <%= hidden_field_tag(:del,"#{elem[5]}") %>
             <th><%= submit_tag(value =t("item.delete"),:class=>"all") %></th>
             <% end %>
@@ -385,6 +397,7 @@ td{
 </br>
 <%= form_tag("/table/input", :method => "get") do %>
   <%= hidden_field_tag(:nik,"#{@nik}") %>
+  <%= hidden_field_tag(:locale,"#{@locale}") %>
   <%= submit_tag(value =t("item.back"),:class=>"all") %>
 <% end %>
 

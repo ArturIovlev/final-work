@@ -98,6 +98,7 @@
               <td><%= form_tag("/table/view_two", :method => "get") do %>
                   <%= hidden_field_tag(:del,"#{elem[5]}") %>
                   <%= hidden_field_tag(:nik,"#{@nik}") %>
+                  <%= hidden_field_tag(:locale,"#{@locale}") %>
                   <%= submit_tag(value =t("item.can") ,:class=>"all") %>
                 <% end %>
               </td>
@@ -107,12 +108,14 @@
       </table>
       <%= form_tag("/table/view_one", :method => "get") do %>
         <%= hidden_field_tag(:nik,"#{@nik}") %>
+        <%= hidden_field_tag(:locale,"#{@locale}") %>
         <%= submit_tag(value =t("item.view_all") ,:class=>"all") %>
       <% end %>
     <%else %>
       <p><%= t("item.you_have") %></p>
       <%= form_tag("/table/view_one", :method => "get") do %>
         <%= hidden_field_tag(:nik,"#{@nik}") %>
+        <%= hidden_field_tag(:locale,"#{@locale}") %>
         <%= submit_tag(value =t("item.view_all"),:class=>"all") %>
       <% end %>
     <%end %>

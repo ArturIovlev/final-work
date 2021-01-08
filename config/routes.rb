@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  scope "(:locale)", local: /#{I18n.available_locales.join("|")}/ do
   get 'session/login'
   post 'session/create'
   get 'session/logout'
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
   get 'table/cached_two', :defaults => { :format=>'xml'}
   get 'table/view_tree'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  end
 end

@@ -3,10 +3,12 @@ class TableController < ApplicationController
     if (params[:nik]!=nil)
       @nik=params[:nik]
     end
+    @locale=params[:locale]
     @admin=true
   end
 
   def view_one
+    @locale=params[:locale]
     @nik =params[:nik]
     del =params[:del]
     input_name=params[:name]
@@ -162,6 +164,7 @@ class TableController < ApplicationController
   end
 
   def view_two
+    @locale=params[:locale]
     name=params[:nik]
     del=params[:del]
     if del!=nil
@@ -191,6 +194,7 @@ class TableController < ApplicationController
   end
 
   def view_tree
+    @locale=params[:locale]
     @nik =params[:nik]
     pass=params[:adm]
     unless pass == "1234"

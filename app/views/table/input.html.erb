@@ -60,10 +60,12 @@
   <div class="heading">
     <%= form_tag("/table/view_one", :method => "get") do %>
       <%= hidden_field_tag(:nik,"#{@nik}") %>
+      <%= hidden_field_tag(:locale,"#{@locale}") %>
       <%= submit_tag(t("item.view_all"),:class=>"tag")  %>
     <% end %>
     <%= form_tag("/table/view_two", :method => "get") do %>
       <%= hidden_field_tag(:nik,"#{@nik}") %>
+      <%= hidden_field_tag(:locale,"#{@locale}") %>
       <%= submit_tag(t("item.view_my"), :class=>"tag") %>
     <% end %>
   </div>
@@ -72,6 +74,7 @@
       <%= form_tag("/table/view_tree", :method => "get",:class=>"lol") do %>
         <%= text_field_tag(:adm) %>
         <%= hidden_field_tag(:nik,"#{@nik}") %>
+        <%= hidden_field_tag(:locale,"#{@locale}") %>
         <%= submit_tag(t("item.admin_page")) %>
       <% end %>
     </p>
